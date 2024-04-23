@@ -1,0 +1,136 @@
+@mixin tablet {
+  @media screen and (max-width: 940px) {
+    @content;
+  }
+}
+
+@mixin milli-tablet {
+  @media screen and (max-width: 770px) {
+    @content;
+  }
+}
+
+@mixin mini-mobile {
+  @media screen and (max-width: 433px) {
+    @content;
+  }
+}
+
+.home {
+  grid-template-columns: 4.32fr 7.68fr;
+  align-items: center;
+  padding: 40px;
+  height: 100vh;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include milli-tablet {
+    margin-top: 20px;
+    padding: 40px 60px;
+  }
+
+  .img__box {
+    z-index: 1;
+    width: 100%;
+    height: 500px;
+
+    @include tablet {
+      height: 700px;
+    }
+
+    @include milli-tablet {
+      height: 500px;
+    }
+
+    @include mini-mobile {
+      height: 300px;
+    }
+
+    .home__img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 0 8px hsla(0, 0%, 0%, 0.3);
+    }
+  }
+
+  .home__content {
+    @include tablet {
+      z-index: 10;
+    }
+    .home__data {
+      max-width: 600px;
+      margin-inline: auto;
+      padding: 20px;
+
+      @include mini-mobile {
+        padding: 0px;
+      }
+
+      .home__title {
+        position: relative;
+        line-height: 1.24;
+        font-size: 30px;
+        padding-left: 10px;
+        // padding-left: 70px;
+
+        @include mini-mobile {
+          padding: 0px;
+          font-size: 22px;
+        }
+
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 22%;
+        //     left: 0;
+        //     width: 40px;
+        //     height: 5px;
+        //     border-radius: 5px;
+        //     background: var(--first-color);
+        // }
+
+        span {
+          display: block;
+          font-size: 40px;
+          margin-bottom: 5px;
+          color: var(--first-color);
+
+          @include mini-mobile {
+            font-size: 35px;
+          }
+        }
+      }
+
+      .home__description {
+        line-height: 1.9;
+        margin-block: 16px 32px;
+      }
+    }
+  }
+
+  .color__block {
+    position: fixed;
+    height: 200%;
+    width: 100%;
+    background: var(--first-color);
+    top: -50%;
+    left: -83%;
+    transform: rotate(-15deg);
+
+    @include tablet {
+      top: -60%;
+      left: 63%;
+      transform: rotate(-20deg);
+    }
+
+    @include milli-tablet {
+      top: -60%;
+      left: 73%;
+      transform: rotate(-15deg);
+    }
+  }
+}

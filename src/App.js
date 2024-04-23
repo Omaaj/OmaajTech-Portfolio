@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  ScrollRestoration,
+  Outlet,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+import Portfolio from "./pages/portfolio/Portfolio";
+import NotFound from "./pages/notfound/NotFound";
+import NavBar from "./components/navbar/NavBar";
+import "./App.css";
+import Themes from "./components/theme/Themes";
 
-function App() {
+const Layouts = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <NavBar />
+      <Themes />
+      <ScrollRestoration />
+      <Outlet />
+    </div>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layouts />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+
+      {
+        path: "/portfolio",
+        element: <Portfolio />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
+
+export default function App() {
+  return (
+    <div className="app">
+      <RouterProvider router={router} />
     </div>
   );
 }
-
-export default App;

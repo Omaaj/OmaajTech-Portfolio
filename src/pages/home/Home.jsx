@@ -7,10 +7,8 @@ export default function Home() {
   return (
     <section className="home section grid">
       <div className="img__box">
-        <img src="./img/20230829_155541.jpg" alt="" className="home__img" />
-        {/* <img src="./img/Untitled design (1).png" alt="" className="home__img" /> */}
+        <img src="./img/Untitled design (1).png" alt="" className="home__img" />
       </div>
-      {/* <img src="./img/v2.jpeg" alt="" className="home__img" /> */}
       <div className="home__content">
         <div className="home__data">
           <h1 className="home__title">

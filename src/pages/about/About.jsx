@@ -2,7 +2,7 @@ import React from "react";
 import "./About.scss";
 import Info from "./Info";
 import { FaDownload } from "react-icons/fa";
-import CV from "../../components/assets/Olajuwon_Resume.pdf";
+import CV from "../../components/assets/Olajuwon_Cv.pdf";
 import Stats from "./Stats";
 import Skills from "./Skills";
 import Resume from "./Resume";
